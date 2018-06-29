@@ -62,5 +62,17 @@
       </plugins>
     </pluginManagement>
   </build>
+ <distributionManagement>
+  <repository>
+     <id>cjpcloud</id>
+     <name>Internal Releases</name>
+     <url>http://54.89.142.214:8088/nexus-latest/content/repositories/releases/</url>
+  </repository>
+  <snapshotRepository>
+     <id>cjpcloud</id>
+     <name>Internal Releases</name>
+     <url>http://54.89.142.214:8088/nexus-latest/content/repositories/snapshots/</url>
+  </snapshotRepository>
+</distributionManagement>  
  
 </project>
