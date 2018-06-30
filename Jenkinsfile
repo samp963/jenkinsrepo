@@ -10,27 +10,27 @@ pipeline{
                 {
                     script
                     {
-	git''
+	git'https://github.com/samp963/jenkinsrepo.git'
                     }
                 }
 		}
-	//	stage ('build') {
-	//		steps {
-	//			script {
-	//				sh 'mvn clean package'
-	//			}
-	//		}
-	//	}
+	/	stage ('build') {
+			steps {
+				script {
+					sh 'mvn clean package'
+				}
+			}
+		}
 	
-		stage("build & SonarQube analysis") {
-         steps {
-              script {
-              withSonarQubeEnv('SonarQube') {
-                 sh 'mvn clean package sonar:sonar'
-              }
-          }
-      }
-        }
+	//	stage("build & SonarQube analysis") {
+        // steps {
+         //     script {
+           //   withSonarQubeEnv('SonarQube') {
+           //      sh 'mvn clean package sonar:sonar'
+           //   }
+         // }
+     // }
+      //  }
         stage ("Junit") {
             steps {
                 script {
