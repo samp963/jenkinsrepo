@@ -47,7 +47,7 @@ pipeline{
                                def uploadSpec  =  """{
                     "files": [
                 {
-                                  "pattern": "/var/lib/jenkins/workspace/pipeline369/target/flipkart-1.1-SNAPSHOT.jar",                   
+                                  "pattern": "/var/lib/jenkins/workspace/democjp_jenkinsrepo_master-FYM4LXCEOCT4C4DX2BPNJ3OW3MG6XW33DJMSWUIMCBBWKLAB3RKA/target/wipro-1.1-SNAPSHOT.jar",                   
 				  "target": "${repositoryName}" 
                 }
                             ]
