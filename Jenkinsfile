@@ -58,7 +58,26 @@ pipeline{
 	    }
 	    }
  }
-	}
+		stage  ('Ansible-Tower') {
+			steps {
+				script {
+					ansibleTower credential: '', 
+						extraVars: '', 
+						importTowerLogs: false, 
+						importWorkflowChildLogs: false, 
+						inventory: 'Demo Inventory', 
+						jobTags: '', 
+						jobTemplate: 'ustemplate', 
+						limit: '', 
+						removeColor: false, 
+						templateType: 'job', 
+						towerServer: 'tower', 
+						verbose: false
+				}
+			}
+		}
+
+   	}
 }
     
 	
