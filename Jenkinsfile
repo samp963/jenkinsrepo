@@ -1,6 +1,6 @@
 branchName = "preprod"
 qaEmailId ="cjptech12@gmail.com"
-repositoryName = "mahi"
+repositoryName = "demo"
 waitingTime = 24
 pipeline{
 	agent any
@@ -14,23 +14,23 @@ pipeline{
                     }
                 }
 		}
-		stage ('build') {
-			steps {
-				script {
-					sh 'mvn clean package'
-				}
-			}
-		}
+	//	stage ('build') {
+	//		steps {
+//				script {
+//					sh 'mvn clean package'
+//				}
+//			}
+//		}
 	
-	//	stage("build & SonarQube analysis") {
-          //   steps {
-          //    script {
-          //    withSonarQubeEnv('SonarQube') {
-          //       sh 'mvn clean package sonar:sonar'
-          //    }
-        //  }
-     // }
-      //  }
+		stage("build & SonarQube analysis") {
+             steps {
+              script {
+              withSonarQubeEnv('SonarQube') {
+                 sh 'mvn clean package sonar:sonar'
+              }
+          }
+      }
+        }
         stage ("Junit") {
             steps {
                 script {
@@ -39,11 +39,11 @@ pipeline{
             }
         }
 
- stage('pramote artifact to QA') {
+ stage('deploy to Jfrong') {
             
             steps {
             script {
-                def server = Artifactory.server ('demo')
+                def server = Artifactory.server ('test')
                                def uploadSpec  =  """{
                     "files": [
                 {
